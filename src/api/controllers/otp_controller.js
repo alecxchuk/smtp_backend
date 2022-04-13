@@ -18,7 +18,7 @@ const verifyOtpController = async (req, res) => {
     await authenticateOTP({ user_id, otp });
 
     // Verification successful. give 3 free vouchers
-    await updateUser(user_id, "voucher", 3);
+    await updateUser(user_id, "invoice_units", 3);
 
     // return response
     sendSuccess(res, {}, userVerifiedSucces);

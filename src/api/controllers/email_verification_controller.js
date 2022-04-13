@@ -19,7 +19,7 @@ const emailController = async (req, res) => {
       );
     }
     // Verification successful. give 3 free vouchers
-    await updateUser(user_id, "voucher", 3);
+    await updateUser(user_id, "invoice_units", 3);
 
     // success go to success page
     res.sendFile(path.join(__dirname, "./../views/verified.html"));
