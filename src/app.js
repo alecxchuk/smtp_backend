@@ -1,4 +1,5 @@
-const app = require("express")();
+const express = require("express");
+const app = express(); //require("express")();
 const cors = require("cors");
 
 const bodyParser = require("body-parser");
@@ -17,6 +18,7 @@ app.use(
 );
 
 app.use(cookieParser());
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(
   session({

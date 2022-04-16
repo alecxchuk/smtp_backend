@@ -95,9 +95,10 @@ const createWallet = ({ user_id, wallet_id, createdAt, updatedAt }) => {
       mysqlConnection.query(
         "INSERT INTO  wallet(wallet_id,user_id,wallet_balance,createdAt,updatedAt) VALUES (?,?,?,?,?)",
         [wallet_id, user_id, 0, createdAt, updatedAt],
-        async (error, result) => {
+        async (error) => {
           // error inserting user to database
           if (error) {
+            console.log(error.message);
             reject({ message: addWalletToDbError });
           } else {
             // getting user id and email from database
@@ -150,6 +151,7 @@ const updateWallet = (wallet_id, property, newValue) => {
         [newValue, wallet_id],
         (error) => {
           if (error) {
+            console.log(error.message, 09088);
             reject({ message: updateWalletError });
           }
 

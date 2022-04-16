@@ -11,7 +11,7 @@ const verifyJWT = require("../middlewares/verify_jwt");
 const router = express.Router();
 
 // buy a plan from wallet
-router.post("/create", validateData, createWalletController);
+router.post("/create", validateData, verifyJWT, createWalletController);
 
 // fund the wallet plan
 router.post("/fundWallet", validateData, verifyJWT, fundWalletController);
